@@ -16,7 +16,14 @@ function Register() {
   async function handleCepBlur() {
     if (form.cep.length === 8) {
       const data = await buscarEndereco(form.cep);
-      setForm((prev) => ({ ...prev, address: data.logradouro || "Não encontrado" }));
+      if (data) {
+      setForm((prev) => ({
+        ...prev, address:
+          `${data.logradouro}, ${data.bairro} - ${data.localidade}/${data.uf}`,
+      }));
+    } else {
+      setForm((prev) => ({ ...prev, address: "CEP não encontrado" }));
+    }
     }
   }
 
@@ -33,12 +40,12 @@ function Register() {
   }
 
   return (
-    <div className="mx-auto mt-5" style={{ maxWidth: "480px" }}>
-      <h1 className="fs-5 fw-bold mytext-4 mb-4 text-center">
-        Cadastro Iara Games
-      </h1>
+    <div className="container d-flex flex-column align-items-center mt-4">
+      <h1 className="fw-bold mytext-2 mb-4">Cadastro</h1>
 
-      <form onSubmit={handleSubmit} className="box-form">
+      <form
+        onSubmit={handleSubmit} className="box-form py-3 px-4 rounded shadow-sm mybg-5" style={{ width: "415px" }}
+      >
         <div className="box-item">
           <label htmlFor="name" className="fw-bold ms-3 mt-2 mb-1 mytext-1">
             Nome

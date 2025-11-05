@@ -23,13 +23,13 @@ function Login() {
   }
 
   return (
-    <div className="container d-flex flex-column align-items-center mt-5">
-      <h1 className="fw-bold mytext-4 mb-4">Login Iara Games</h1>
+    <div className="container d-flex flex-column align-items-center mt-4">
+      <h1 className="fw-bold mytext-2 mb-4">Login</h1>
 
       <form
         onSubmit={handleLogin}
-        className="box-form p-4 rounded shadow-sm mybg-5"
-        style={{ width: "350px" }}
+        className="box-form py-3 px-4 rounded shadow-sm mybg-5"
+        style={{ width: "415px" }}
       >
         <div className="box-item mb-3">
           <label

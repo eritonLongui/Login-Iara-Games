@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Login from '../Login/index.jsx'
 import Register from '../Register/index.jsx'
+import "../../index.css";
 
 function Body() {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center gap-3">
       {showLogin ? (
         <>
           <Login />
@@ -14,8 +15,8 @@ function Body() {
             Ainda não tem login?{" "}
             <button
               onClick={() => setShowLogin(false)}
+              className="mytext-1 fw-bold"
               style={{
-                color: "blue",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
@@ -33,8 +34,8 @@ function Body() {
             Já possui uma conta?{" "}
             <button
               onClick={() => setShowLogin(true)}
+              className="mytext-1 fw-bold"
               style={{
-                color: "blue",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
